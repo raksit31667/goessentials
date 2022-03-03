@@ -1,19 +1,17 @@
 package main
 
 import (
-	"fmt"
-	"github.com/raksit31667/goessentials/say"
+	"net/http"
+
+	"github.com/labstack/echo"
 )
 
 func main() {
-	s := "Hello, Gopher"
-	var age int
-	fmt.Println(s)
-	fmt.Println(age)
+	e := echo.New()
 
-	h := say.Say()
-	fmt.Println(h)
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello, Gopher")
+	})
 
-	ha, hb := say.Say2("foo")
-	fmt.Println(ha, hb)
+	e.Logger.Fatal(e.Start(":1234"))
 }
