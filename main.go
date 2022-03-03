@@ -1,15 +1,29 @@
 package main
 
 import (
+	"fmt"
+
 	"net/http"
 
 	"github.com/labstack/echo"
 )
 
+type Person struct {
+	Name string
+	Age int
+}
+
 func main() {
 	e := echo.New()
 
 	e.GET("/", func(c echo.Context) error {
+		var p Person = Person{
+			Age: 30,
+			Name: "John",
+		}
+
+		fmt.Printf("%#v\n", p)
+
 		return c.String(http.StatusOK, "Hello, Gopher")
 	})
 
