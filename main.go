@@ -1,14 +1,9 @@
 package main
 
-import "fmt"
-
-func say() string {
-	return "Hello, Gopher"
-}
-
-func say2(s string) (string, int) {
-	return s + " Hello, Gopher", 2
-}
+import (
+	"fmt"
+	"github.com/raksit31667/goessentials/say"
+)
 
 func main() {
 	s := "Hello, Gopher"
@@ -16,9 +11,9 @@ func main() {
 	fmt.Println(s)
 	fmt.Println(age)
 
-	h := say()
+	h := say.Say()
 	fmt.Println(h)
 
-	ha, hb := say2("foo")
+	ha, hb := say.Say2("foo")
 	fmt.Println(ha, hb)
 }
