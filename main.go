@@ -13,6 +13,10 @@ type Person struct {
 	Age int
 }
 
+func (p Person) Walk() {
+	fmt.Println(p.Name, "is walking")
+}
+
 func main() {
 	e := echo.New()
 
@@ -23,6 +27,8 @@ func main() {
 		}
 
 		fmt.Printf("%#v\n", p)
+
+		p.Walk()
 
 		return c.String(http.StatusOK, "Hello, Gopher")
 	})
